@@ -60,9 +60,17 @@ class _HomePageViewState extends State<HomePageView> {
                   children: <Widget>[
                     Align(
                       child: Container(
-                        child: Text(
-                          '6305071091',
-                          ),
+                        child: Column(
+                          children:<Widget> [
+                            Text(
+                              '6305071091',
+                              ),
+                              TextButton(
+                                onPressed: (){}, 
+                                child: Text('view'),
+                                ),
+                          ],
+                        ),
                       ),
                     ),
                       RaisedButton(
