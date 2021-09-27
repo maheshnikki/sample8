@@ -1,4 +1,4 @@
-# sample8
+# sample8 [MyData] -> It's a app in flutter runs on both Android & IOS application.
 
 A new Flutter project.
 
@@ -13,4 +13,8 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
+YouTube tutorials, & some web pages.
 samples, guidance on mobile development, and a full API reference.
+
+
+Mahesh.
