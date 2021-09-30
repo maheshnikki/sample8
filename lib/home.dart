@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
 import 'package:sample8/TabBarView/bank_page_view.dart';
 import 'package:sample8/TabBarView/cinema_page_view.dart';
 import 'package:sample8/TabBarView/cloud_page_view.dart';
@@ -16,16 +17,19 @@ import 'package:sample8/TabBarView/music_page_view.dart';
 import 'package:sample8/TabBarView/news_page_view.dart';
 import 'package:sample8/TabBarView/stories_page_view.dart';
 import 'package:sample8/TabBarView/upi_page_view.dart';
+import 'package:sample8/loginPage.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
-
+  var name;
+  Home({
+    Key? mykey,
+    this.name
+  }): super(key: mykey);
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -46,7 +50,7 @@ class _HomeState extends State<Home> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          'Hi, Mahesh',
+                          'Hi, ${widget.name}',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -91,7 +95,8 @@ class _HomeState extends State<Home> {
                         title: Center(child: Text('Recharge history')),
                         onTap: () {}),
                     ListTile(
-                        title: Center(child: Text('My statement')), onTap: () {}),
+                        title: Center(child: Text('My statement')),
+                        onTap: () {}),
                     ListTile(
                         title: Center(child: Text('Vouchers')), onTap: () {}),
                     ListTile(
@@ -115,7 +120,8 @@ class _HomeState extends State<Home> {
                         title: Center(child: Text('Recharge for a friend')),
                         onTap: () {}),
                     ListTile(
-                        title: Center(child: Text('Track order')), onTap: () {}),
+                        title: Center(child: Text('Track order')),
+                        onTap: () {}),
                     ListTile(
                         title: Center(child: Text('Link Fiber')), onTap: () {}),
                   ],
@@ -172,7 +178,7 @@ class _HomeState extends State<Home> {
                     ListTile(
                         title: Center(child: Text('Spin2Win')), onTap: () {}),
                     ListTile(
-                        title: Center(child: Text('SFun Zone')), onTap: () {}),
+                        title: Center(child: Text('Fun Zone')), onTap: () {}),
                   ],
                 ),
               ),
@@ -209,7 +215,12 @@ class _HomeState extends State<Home> {
               ListTile(
                   leading: Icon(Icons.logout),
                   title: Text('Sign Out'),
-                  onTap: () {}),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  }),
             ],
           ),
         ),
@@ -235,12 +246,12 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   IconButton(
-                    onPressed: (){}, 
+                    onPressed: () {},
                     icon: Icon(
                       Icons.notifications,
-                      color:Colors.white,
-                      ),
+                      color: Colors.white,
                     ),
+                  ),
                 ],
               ),
             ),
@@ -252,21 +263,51 @@ class _HomeState extends State<Home> {
             indicatorWeight: 5,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
-              Tab(text: 'HOME', ),
-              Tab(text: 'MOBILE',),
-              Tab(text: 'FIBER',),
-              Tab(text: 'HEALTH',),
-              Tab(text: 'UPI',),
-              Tab(text: 'MART',),
-              Tab(text: 'MUSIC',),
-              Tab(text: 'NEWS',),
-              Tab(text: 'ENGAGE',),
-              Tab(text: 'BANK',),
-              Tab(text: 'CINEMA',),
-              Tab(text: 'GAMES',),
-              Tab(text: 'CLOUD',),
-              Tab(text: 'STORIES',),
-              Tab(text: 'EASYGOV',),
+              Tab(
+                text: 'HOME',
+              ),
+              Tab(
+                text: 'MOBILE',
+              ),
+              Tab(
+                text: 'FIBER',
+              ),
+              Tab(
+                text: 'HEALTH',
+              ),
+              Tab(
+                text: 'UPI',
+              ),
+              Tab(
+                text: 'MART',
+              ),
+              Tab(
+                text: 'MUSIC',
+              ),
+              Tab(
+                text: 'NEWS',
+              ),
+              Tab(
+                text: 'ENGAGE',
+              ),
+              Tab(
+                text: 'BANK',
+              ),
+              Tab(
+                text: 'CINEMA',
+              ),
+              Tab(
+                text: 'GAMES',
+              ),
+              Tab(
+                text: 'CLOUD',
+              ),
+              Tab(
+                text: 'STORIES',
+              ),
+              Tab(
+                text: 'EASYGOV',
+              ),
             ],
           ),
         ),
@@ -288,7 +329,7 @@ class _HomeState extends State<Home> {
             StoriesPageView(),
             EasygovPageView(),
           ],
-          ),
+        ),
       ),
     );
   }

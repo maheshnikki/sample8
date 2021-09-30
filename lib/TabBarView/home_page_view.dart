@@ -17,73 +17,116 @@ class _HomePageViewState extends State<HomePageView> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 350,
-            color: Colors.indigo.shade900,
-            child: CarouselSlider(
-              options: CarouselOptions(
-                enlargeCenterPage: true,
-                autoPlay: false,
-                enableInfiniteScroll: false,
-              ),
-              items: imagesList
-                  .map((e) => ClipRRect(
-                        borderRadius: BorderRadius.circular(0),
-                        child: Stack(
-                          fit: StackFit.expand,
-                          children: <Widget>[
-                            Image.network(
-                              e,
-                              width: 60,
-                              height: 20,
-                              // fit: BoxFit.fitHeight,
-                            )
-                          ],
-                        ),
-                      ))
-                  .toList(),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 315,horizontal: 10),
-            width: 250,
-            child: SizedBox(
-              height: 60,
-              child: Card(
-                color: Colors.yellowAccent.shade700,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Align(
-                      child: Container(
-                        child: Column(
-                          children:<Widget> [
-                            Text(
-                              '6305071091',
-                              ),
-                              TextButton(
-                                onPressed: (){}, 
-                                child: Text('view'),
-                                ),
-                          ],
-                        ),
-                      ),
-                    ),
-                      RaisedButton(
-                        onPressed: (){},
-                        child: Text('Recharge'),
-                        ),
-                  ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              height: 350,
+              color: Colors.indigo.shade900,
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  enlargeCenterPage: true,
+                  autoPlay: false,
+                  enableInfiniteScroll: false,
                 ),
+                items: imagesList
+                    .map((e) => ClipRRect(
+                          borderRadius: BorderRadius.circular(0),
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: <Widget>[
+                              Image.network(
+                                e,
+                                width: 60,
+                                height: 20,
+                                // fit: BoxFit.fitHeight,
+                              )
+                            ],
+                          ),
+                        ))
+                    .toList(),
               ),
             ),
-          ),
-        ],
+            // Container(
+            //   padding: EdgeInsets.symmetric(vertical: 315,horizontal: 10),
+            //   width: 30,
+            //   height: 50,
+            //   color: Colors.yellow,
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children:<Widget> [
+            //       Container(
+            //         width:260,
+            //         child: Card(
+            //           child: Wrap(
+            //             children: <Widget>[
+            //               Row(
+            //                 children:<Widget> [
+            //                   Text('recharge'),
+            //                 ],
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+    
+            // Container(
+            //   padding: EdgeInsets.symmetric(vertical: 315,horizontal: 10),
+            //   width: 250,
+            //   child: SizedBox(
+            //     height: 80,
+            //     child: Card(
+            //       color: Colors.yellowAccent.shade700,
+            //       child: Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: <Widget>[
+            //           Align(
+            //             child: Container(
+            //               child: Column(
+            //                 children:<Widget> [
+            //                   Text(
+            //                     '6305071091',
+            //                     ),
+            //                     TextButton(
+            //                       onPressed: (){}, 
+            //                       child: Text(
+            //                         'View more',
+            //                       ),
+            //                       ),
+            //                 ],
+                            
+            //               ),
+            //             ),
+            //           ),
+            //             RaisedButton(
+            //               onPressed: (){},
+            //               child: Text('Recharge'),
+            //               ),
+            //               Divider(
+            //                 color: Colors.black26,
+            //                 thickness: 1,
+            //               ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            Container(
+               padding: EdgeInsets.symmetric(vertical: 315,horizontal: 10),
+              child: Card(
+                child: Text('mnbv'),
+              ),
+            ),
+          ],
+        ),
+        
       ),
+
     );
   }
 }
