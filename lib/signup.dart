@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:sample8/colors-UI/Hex_color.dart';
 import 'package:sample8/loginPage.dart';
 
 class SignUp extends StatefulWidget {
@@ -11,21 +12,25 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   int _value = 1;
+  bool HiddenPassword = true;
+  Color _color1 = HexColor("#FCE5E2");
+  Color _color2 = HexColor("#243642");
+  Color _color3 = HexColor("#19070C");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: _color2,
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.black,
+          // color: _color2,
           child: Column(
             children: <Widget>[
               Container(
                 width: double.infinity,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: Colors.amberAccent[700],
+                  color: _color1,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(100),
                       bottomRight: Radius.circular(100)),
@@ -38,16 +43,19 @@ class _SignUpState extends State<SignUp> {
                       Text(
                         'Existing user ?',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: _color2,
                           fontSize: 18,
                         ),
                       ),
                       Center(
                         child: Container(
-                          width: 200,
-                          height: 70,
+                          width: 250,
+                          height: 80,
                           padding: EdgeInsets.all(10),
                           child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -58,11 +66,11 @@ class _SignUpState extends State<SignUp> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                color: Colors.amberAccent[700],
+                                color: _color1,
                                 fontSize: 36,
                               ),
                             ),
-                            color: Colors.black,
+                            color: _color2,
                             splashColor: Colors.amberAccent,
                           ),
                         ),
@@ -83,17 +91,17 @@ class _SignUpState extends State<SignUp> {
                       child: Text(
                         'Sign up with',
                         style: TextStyle(
-                          color: Colors.amberAccent[700],
+                          color: _color3,
                           fontSize: 18,
                         ),
                       ),
                     ),
                     Text(
-                      'CryptoCurrency',
+                      'My Data',
                       style: TextStyle(
-                        color: Colors.amberAccent[700],
+                        color: _color3,
                         fontSize: 36,
-                        // fontWeight:
+                        fontWeight: FontWeight.bold
                       ),
                     ),
                     Container(
@@ -103,14 +111,13 @@ class _SignUpState extends State<SignUp> {
                           children: <Widget>[
                             TextFormField(
                               decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.person,
-                                    color: Colors.amberAccent),
+                                prefixIcon: Icon(Icons.person, color: _color3),
                                 labelText: 'User Name',
                                 hintText: 'Enter your UserName',
                                 labelStyle: TextStyle(
                                   fontSize: 36,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.amberAccent[700],
+                                  color: _color3,
                                 ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
@@ -168,16 +175,15 @@ class _SignUpState extends State<SignUp> {
                             //     ],
                             //   ),
                             // ),
+                            Padding(padding: EdgeInsets.only(top: 10)),
                             TextFormField(
                               decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.email,
-                                    color: Colors.amberAccent),
-                                labelText: 'Email',
-                                hintText: 'Enter your Email',
+                                prefixIcon: Icon(Icons.email, color: _color3),
+                                labelText: 'Email or Phone no.',
+                                hintText: 'Enter your Email or Phone no.',
                                 labelStyle: TextStyle(
-                                  fontSize: 36,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.amberAccent[700],
+                                  fontSize: 28,                                  fontWeight: FontWeight.bold,
+                                  color: _color3,
                                 ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
@@ -186,15 +192,27 @@ class _SignUpState extends State<SignUp> {
                             ),
                             Padding(padding: EdgeInsets.only(top: 10)),
                             TextFormField(
+                              obscureText: HiddenPassword,
                               decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.password,
-                                    color: Colors.amberAccent),
+                                prefixIcon:
+                                    Icon(Icons.password, color: _color3),
                                 labelText: 'Password',
+                                suffixIcon: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      HiddenPassword = !HiddenPassword;
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.visibility,
+                                    color: _color1,
+                                  ),
+                                ),
                                 hintText: 'Enter your Password',
                                 labelStyle: TextStyle(
                                   fontSize: 36,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.amberAccent[700],
+                                  color: _color3,
                                 ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
@@ -205,18 +223,21 @@ class _SignUpState extends State<SignUp> {
                               padding: EdgeInsets.only(top: 20),
                               child: Center(
                                 child: Container(
-                                  width: 200,
+                                  width: 250,
                                   height: 60,
                                   child: RaisedButton(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(100),
+                                      ),
                                     onPressed: () {},
                                     child: Text(
                                       'SIGN UP',
                                       style: TextStyle(
-                                        color: Colors.black,
+                                        color: _color2,
                                         fontSize: 36,
                                       ),
                                     ),
-                                    color: Colors.amberAccent[700],
+                                    color: _color1,
                                   ),
                                 ),
                               ),

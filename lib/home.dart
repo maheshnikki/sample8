@@ -62,12 +62,15 @@ class _HomeState extends State<Home> {
                           height: 20,
                           thickness: 1,
                         ),
-                        Text(
-                          'Profile & other settings',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        InkWell(
+                          onTap: (){},
+                          child: Text(
+                            'Profile & other settings',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample8/colors-UI/Hex_color.dart';
 import 'package:sample8/home.dart';
 import 'package:sample8/signup.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -27,7 +28,10 @@ class _LoginPageState extends State<LoginPage> {
     if (formKey.currentState!.validate()) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Home(name: emailController.text,)),
+        MaterialPageRoute(
+            builder: (context) => Home(
+                  name: emailController.text,
+                )),
       );
     } else {
       showDialog(
@@ -57,13 +61,22 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  Color _color3 = HexColor("#243642");
+  Color _color1 = HexColor("#FCE5E2");
+  Color _color2 = HexColor("#243642");
+  Color _color4 = HexColor("#FCE5E2");
+  Color _color5 = HexColor("#FCE5E2");
+  Color _color6 = HexColor("#FCE5E2");
+  Color _color7 = HexColor("#243642");
+  Color _color8 = HexColor("#243642");
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: _color3,
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.black,
+          color: _color3,
           child: Column(
             children: <Widget>[
               Container(
@@ -72,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.all(20),
                 // color: Colors.red,
                 decoration: BoxDecoration(
-                  color: Colors.amberAccent[700],
+                  color: _color1,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(100),
                       bottomRight: Radius.circular(100)),
@@ -86,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         'Welcome to',
                         style: TextStyle(
                           decoration: TextDecoration.none,
-                          color: Colors.black,
+                          color: _color8,
                           fontSize: 18,
                         ),
                       ),
@@ -95,14 +108,14 @@ class _LoginPageState extends State<LoginPage> {
                       'My Data',
                       style: TextStyle(
                         decoration: TextDecoration.none,
-                        color: Colors.black,
+                        color: _color8,
                         fontSize: 40,
                       ),
                     ),
                     Text(
                       'Please Login TO Continue',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: _color8,
                         fontSize: 18,
                       ),
                     ),
@@ -119,15 +132,15 @@ class _LoginPageState extends State<LoginPage> {
                                   labelStyle: TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: _color8,
                                   ),
                                   prefixIcon:
-                                      Icon(Icons.email, color: Colors.black),
+                                      Icon(Icons.email, color: _color8),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  hintText: 'Enter Your Email',
-                                  labelText: "Email"),
+                                  hintText: 'Enter Your Email or User Name',
+                                  labelText: "Email or User name"),
                               validator: MultiValidator([
                                 RequiredValidator(errorText: 'Required'),
                                 // EmailValidator(errorText: 'Enter valid Email'),
@@ -141,18 +154,17 @@ class _LoginPageState extends State<LoginPage> {
                               controller: passwordController,
                               decoration: InputDecoration(
                                 prefixIcon:
-                                    Icon(Icons.password, color: Colors.black),
+                                    Icon(Icons.password, color: _color8),
                                 labelText: 'Password',
                                 suffixIcon: InkWell(
                                   onTap: () {
                                     setState(() {
                                       HiddenPassword = !HiddenPassword;
                                     });
-                                    
                                   },
                                   child: Icon(
                                     Icons.visibility,
-                                    color: Colors.black,
+                                    color: _color8,
                                   ),
                                 ),
                                 hintText: 'Enter your Password',
@@ -173,18 +185,21 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 20),
-                              width: 200,
+                              width: 250,
                               height: 60,
                               child: RaisedButton(
+                                shape: RoundedRectangleBorder(
+                                   borderRadius: BorderRadius.circular(100),
+                                  ),
                                 onPressed: validator,
                                 child: Text(
                                   'Login',
                                   style: TextStyle(
-                                    color: Colors.amberAccent[700],
+                                    color: _color4,
                                     fontSize: 36,
                                   ),
                                 ),
-                                color: Colors.black,
+                                color: _color2,
                                 splashColor: Colors.amberAccent,
                               ),
                             ),
@@ -201,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
                                           'FORGOT PASSWORD ?',
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Colors.black,
+                                            color: _color8,
                                           ),
                                         ))),
                               ],
@@ -224,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'OR',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: _color5,
                           fontSize: 36,
                         ),
                       ),
@@ -233,9 +248,12 @@ class _LoginPageState extends State<LoginPage> {
                       padding: EdgeInsets.only(top: 20),
                       child: Center(
                         child: Container(
-                          width: 200,
+                          width: 250,
                           height: 60,
                           child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -246,11 +264,11 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text(
                               'SIGN UP',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: _color7,
                                 fontSize: 36,
                               ),
                             ),
-                            color: Colors.amberAccent[700],
+                            color: _color6,
                           ),
                         ),
                       ),
