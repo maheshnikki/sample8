@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sample8/colors-UI/Hex_color.dart';
 import 'package:sample8/loginPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key? key}) : super(key: key);
@@ -17,8 +19,12 @@ class _SignUpState extends State<SignUp> {
   Color _color2 = HexColor("#243642");
   Color _color3 = HexColor("#19070C");
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       backgroundColor: _color2,
       body: SingleChildScrollView(
@@ -54,8 +60,8 @@ class _SignUpState extends State<SignUp> {
                           padding: EdgeInsets.all(10),
                           child: RaisedButton(
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -89,7 +95,7 @@ class _SignUpState extends State<SignUp> {
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'Sign up with',
+                        'Sign up with (Sign in'+ (user==null? 'out' :'in')+')',
                         style: TextStyle(
                           color: _color3,
                           fontSize: 18,
@@ -99,10 +105,9 @@ class _SignUpState extends State<SignUp> {
                     Text(
                       'My Data',
                       style: TextStyle(
-                        color: _color3,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold
-                      ),
+                          color: _color3,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold),
                     ),
                     Container(
                       padding: EdgeInsets.all(20),
@@ -177,12 +182,14 @@ class _SignUpState extends State<SignUp> {
                             // ),
                             Padding(padding: EdgeInsets.only(top: 10)),
                             TextFormField(
+                              controller: emailController,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.email, color: _color3),
                                 labelText: 'Email or Phone no.',
                                 hintText: 'Enter your Email or Phone no.',
                                 labelStyle: TextStyle(
-                                  fontSize: 28,                                  fontWeight: FontWeight.bold,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
                                   color: _color3,
                                 ),
                                 border: OutlineInputBorder(
@@ -192,6 +199,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                             Padding(padding: EdgeInsets.only(top: 10)),
                             TextFormField(
+                              controller: passwordController,
                               obscureText: HiddenPassword,
                               decoration: InputDecoration(
                                 prefixIcon:
@@ -228,8 +236,15 @@ class _SignUpState extends State<SignUp> {
                                   child: RaisedButton(
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(100),
-                                      ),
-                                    onPressed: () {},
+                                    ),
+                                    onPressed: () async {
+                                      await FirebaseAuth.instance
+                                          .createUserWithEmailAndPassword(
+                                        email: emailController.text,
+                                        password: passwordController.text,
+                                      );
+                                      setState(() {});
+                                    },
                                     child: Text(
                                       'SIGN UP',
                                       style: TextStyle(

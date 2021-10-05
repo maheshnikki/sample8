@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -21,10 +22,7 @@ import 'package:sample8/loginPage.dart';
 
 class Home extends StatefulWidget {
   var name;
-  Home({
-    Key? mykey,
-    this.name
-  }): super(key: mykey);
+  Home({Key? mykey, this.name}) : super(key: mykey);
   @override
   _HomeState createState() => _HomeState();
 }
@@ -63,7 +61,7 @@ class _HomeState extends State<Home> {
                           thickness: 1,
                         ),
                         InkWell(
-                          onTap: (){},
+                          onTap: () {},
                           child: Text(
                             'Profile & other settings',
                             style: TextStyle(
@@ -218,7 +216,8 @@ class _HomeState extends State<Home> {
               ListTile(
                   leading: Icon(Icons.logout),
                   title: Text('Sign Out'),
-                  onTap: () {
+                  onTap: () async {
+                    await FirebaseAuth.instance.signOut();
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => LoginPage()),

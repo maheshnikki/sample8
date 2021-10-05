@@ -3,6 +3,8 @@ import 'package:sample8/colors-UI/Hex_color.dart';
 import 'package:sample8/home.dart';
 import 'package:sample8/signup.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
